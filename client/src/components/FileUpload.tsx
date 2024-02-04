@@ -70,6 +70,9 @@ function FileUpload() {
 
   const handleSubmit = async () => {
     try {
+      if (!base64Video || !videoURL) {
+        setError("Please upload a video");
+      }
       await axios.post(
         "http://localhost:5000/upload",
         { video: base64Video, location: location },
@@ -120,9 +123,7 @@ function FileUpload() {
             <span className="font-semibold">Click to upload</span> or drag and
             drop
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            SVG, PNG, JPG or GIF (MAX. 800x400px)
-          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">MP4, WEBM</p>
         </div>
         <FileInput
           id="dropzone-file"
@@ -131,6 +132,9 @@ function FileUpload() {
           onChange={handleFileChange}
         />
       </Label>
+      {error && (
+        <div className="text-red-500 text-center font-semibold">{error}</div>
+      )}
       {videoURL && (
         <video
           controls
