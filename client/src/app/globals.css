@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  background: rgb(167, 182, 223);
+  background: linear-gradient(90deg, rgba(167, 182, 223, 1) 0%, rgba(91, 112, 201, 1) 8%, rgba(135, 137, 252, 1) 18%, rgba(116, 152, 219, 1) 44%, rgba(165, 163, 255, 1) 51%, rgba(135, 137, 252, 1) 73%, rgba(91, 112, 201, 1) 86%, rgba(167, 182, 223, 1) 100%);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
